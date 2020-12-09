@@ -26,7 +26,7 @@ This shows that low risk loans have much more samples compared to the high risk 
 After resampling, the resulting counts have changed to the following table. As you can see, for random oversampler (ROS) and SMOTE, the high risk loan counts have gone up. For cluster centroids, the low risk sample counts have gone down to match the small count of the high risk samples. Lastly, for SMOTEEN (combination), the high risk samples are similar to ROS and SMOTE but the low risk loans have not gone up as much as it had in the other two oversampling models.
 
 | Samples | Random Oversampling | SMOTE | Cluster Centroid | SMOTEENN | 
-| ------ | ----------- || ------ | ----------- |----------- |
+| ------ | ----------- | ------ | ----------- |----------- |
 | low_risk   | 51366 | 51366 | 246 | 51366 |
 | high_risk | 51366 | 51366 | 246 | 47365 |
 
@@ -64,24 +64,21 @@ The SMOTEENN model also had the highest geometric mean score at 0.8386. This sco
 
 ### Ensemble Learning
 
-For ensemble learning, I used the Balanced Random Forest classifier and the Easy ensemble classifier to predict loan risk. Similar to what was done in the previous section, the models were evaulated using the balanced accuracy score, classification report recall scores and the geometric mean.
+For ensemble learning, I used the Balanced Random Forest classifier and the Easy ensemble classifier to predict loan risk. Similar to what was done in the previous section, the models were evaulated using the balanced accuracy score, classification report recall scores and the geometric mean. For all 3 metrics, the Easy Ensemble Classifier scored much higher compare to the the Balanced Random  Classifier. 
 
-For all 3 metrics, the Easy Ensemble Classifier scored much higher compare to the the Balanced Random  Classifier. 
-
+---
 
 | Algorithm | Balanced Accuracy Score |
 | ------ | ----------- |
 | Balanced Random Forest  | 0.79 |
 | Easy Ensemble Classifier | 0.93 |
 
----
 
 | Algorithm | high risk loan recall | low risk loan recall |
 | ------ | ----------- | ----------- |
 | Balanced Random Forest   | 0.67 | 0.90 |
 | Easy Ensemble Classifier | 0.92 | 0.94 |
 
----
 
 | Algorithm | Geometric Mean |
 | ------ | ----------- |
@@ -107,7 +104,7 @@ This analysis shows the different algorithms that can be applied on imbalanced d
 #### Jupyter Notebooks for reference
 
 - [Resampling](https://github.com/nikanikachan/HW11_Classification/blob/main/credit_risk_resampling%20_getdummies.ipynb)
-- [Ensemble Learning](https://github.com/nikanikachan/HW11_Classification/blob/main/credit_risk_ensemble_getdummies.ipyn
+- [Ensemble Learning](https://github.com/nikanikachan/HW11_Classification/blob/main/credit_risk_ensemble_getdummies.ipynb)
 
 Same analysis notebooks but in these, I used label encoder instead of get dummies fo encoding:
 
