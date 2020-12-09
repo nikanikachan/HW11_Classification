@@ -1,11 +1,11 @@
 # Homework 11 - Risky Business (Machine Learning Classification)
 
-#### Introduction
+### Introduction
 
 This assignment uses machine learning techniques to predict credit using using data from LendingClub. The two different techniques used in this analysis is Resampling and Ensemble Learning. 
 
 
-#### Data preparation
+### Data preparation
 
 Before diving into the classification regressions. I first had to further clean the data. I used the label encoder function to convert independent variables into workable numbers. I then realized that the results were not satisfactory so I used the getdummies function to do binary encoding on the independent variables instead. The results below all refer to data that was encoded using getdummies. 
 
@@ -25,6 +25,7 @@ This shows that low risk loans have much more samples compared to the high risk 
 
 After resampling, the resulting counts have changed to the following table. As you can see, for random oversampler (ROS) and SMOTE, the high risk loan counts have gone up. For cluster centroids, the low risk sample counts have gone down to match the small count of the high risk samples. Lastly, for SMOTEEN (combination), the high risk samples are similar to ROS and SMOTE but the low risk loans have not gone up as much as it had in the other two oversampling models.
 
+COUNT OF SAMPLES
 | Samples | Random Oversampling | SMOTE | Cluster Centroid | SMOTEENN | 
 | ------ | ----------- | ------ | ----------- |----------- |
 | low_risk   | 51366 | 51366 | 246 | 51366 |
@@ -32,6 +33,8 @@ After resampling, the resulting counts have changed to the following table. As y
 
 
 Below is a summary of the key metrics from each of the regressions models.The SMOTEENN model had the highest balanced accuracy score of 0.8388 compared to all other models
+
+
 
 | Algorithm | Balanced Accuracy Score |
 | ------ | ----------- |
@@ -43,6 +46,7 @@ Below is a summary of the key metrics from each of the regressions models.The SM
 
 The SMOTE model had the highest recall for high risk loans at 0.86 while the Cluster Centroid model had the highest recall for the low risk loans
 
+
 | Algorithm | high risk loan recall | low risk loan recall |
 | ------ | ----------- | ----------- |
 | Random Oversampler   | 0.83 | 0.84 |
@@ -52,6 +56,7 @@ The SMOTE model had the highest recall for high risk loans at 0.86 while the Clu
 
 
 The SMOTEENN model also had the highest geometric mean score at 0.8386. This score maximizes the accuracy of each of the classes.
+
 
 | Algorithm | Geometric Mean |
 | ------ | ----------- |
@@ -66,12 +71,11 @@ The SMOTEENN model also had the highest geometric mean score at 0.8386. This sco
 
 For ensemble learning, I used the Balanced Random Forest classifier and the Easy ensemble classifier to predict loan risk. Similar to what was done in the previous section, the models were evaulated using the balanced accuracy score, classification report recall scores and the geometric mean. For all 3 metrics, the Easy Ensemble Classifier scored much higher compare to the the Balanced Random  Classifier. 
 
----
 
-| Algorithm | Balanced Accuracy Score |
-| ------ | ----------- |
-| Balanced Random Forest  | 0.79 |
-| Easy Ensemble Classifier | 0.93 |
+| Algorithm | Balanced Accuracy Score | high risk loan recall | low risk loan recall |Geometric Mean |
+| ------ | ----------- |----------- | ----------- | ----------- |
+| Balanced Random Forest  | 0.79 |0.67 | 0.90 |0.78 |
+| Easy Ensemble Classifier | 0.93 |0.92 | 0.94 |0.93 |
 
 
 | Algorithm | high risk loan recall | low risk loan recall |
@@ -84,8 +88,6 @@ For ensemble learning, I used the Balanced Random Forest classifier and the Easy
 | ------ | ----------- |
 | Balanced Random Forest   | 0.78 |
 | Easy Ensemble Classifier | 0.93 |
-
----
 
 
 Using the feature importances function in the Balanced Random Forest classifier, the top 3 features in determining the credit risk of a borrower as shown below. We can see that the top 3 features all relate to whether a portion of the loan has already been paid which makes sense because it shows a glimpse of past behavior of the borrower.
