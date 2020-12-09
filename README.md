@@ -32,38 +32,20 @@ COUNT OF SAMPLES
 | high_risk | 51366 | 51366 | 246 | 47365 |
 
 
-Below is a summary of the key metrics from each of the regressions models.The SMOTEENN model had the highest balanced accuracy score of 0.8388 compared to all other models
+Below is a summary of the key metrics from each of the regressions models.
 
 
-
-| Algorithm | Balanced Accuracy Score |
-| ------ | ----------- |
-| Random Oversampling   | 0.84 |
-| SMOTE | 0.60 |
-| Cluster Centroids    | 0.82 |
-| SMOTEENN   | 0.84 |
-
-
-The SMOTE model had the highest recall for high risk loans at 0.86 while the Cluster Centroid model had the highest recall for the low risk loans
+| Algorithm | Balanced Accuracy Score | High risk loan recall | Low risk loan recall |Geometric Mean |
+| ------ | ----------- |----------- | ----------- | ----------- |
+| Random Oversampling  | 0.84  |0.83 | 0.84 |0.84 |
+| SMOTE | 0.60  |0.86 | 0.35 |0.55|
+| Cluster Centroids | 0.82|0.82 | 0.86 |0.82|
+| SMOTEENN  | 0.84 |0.69 | 0.74 |0.84 |
 
 
-| Algorithm | high risk loan recall | low risk loan recall |
-| ------ | ----------- | ----------- |
-| Random Oversampler   | 0.83 | 0.84 |
-| SMOTE | 0.86 | 0.35 |
-| Cluster Centroids  | 0.82 | 0.86 |
-| SMOTEENN    | 0.69 | 0.74 |
-
-
-The SMOTEENN model also had the highest geometric mean score at 0.8386. This score maximizes the accuracy of each of the classes.
-
-
-| Algorithm | Geometric Mean |
-| ------ | ----------- |
-| Random Oversampler   | 0.84 |
-| SMOTE | 0.55 |
-| Cluster Centroids    | 0.82 |
-| SMOTEENN    | 0.84 |
+- SMOTEENN had the highest balanced accuracy score of 0.8388 compared to all other models
+- SMOTE model had the highest recall for high risk loans at 0.86 while the Cluster Centroid model had the highest recall for the low risk loans
+- SMOTEENN model also had the highest geometric mean score at 0.8386. This score maximizes the accuracy of each of the classes.
 
 
 
@@ -72,22 +54,11 @@ The SMOTEENN model also had the highest geometric mean score at 0.8386. This sco
 For ensemble learning, I used the Balanced Random Forest classifier and the Easy ensemble classifier to predict loan risk. Similar to what was done in the previous section, the models were evaulated using the balanced accuracy score, classification report recall scores and the geometric mean. For all 3 metrics, the Easy Ensemble Classifier scored much higher compare to the the Balanced Random  Classifier. 
 
 
-| Algorithm | Balanced Accuracy Score | high risk loan recall | low risk loan recall |Geometric Mean |
+| Algorithm | Balanced Accuracy Score | High risk loan recall | Low risk loan recall |Geometric Mean |
 | ------ | ----------- |----------- | ----------- | ----------- |
 | Balanced Random Forest  | 0.79 |0.67 | 0.90 |0.78 |
 | Easy Ensemble Classifier | 0.93 |0.92 | 0.94 |0.93 |
 
-
-| Algorithm | high risk loan recall | low risk loan recall |
-| ------ | ----------- | ----------- |
-| Balanced Random Forest   | 0.67 | 0.90 |
-| Easy Ensemble Classifier | 0.92 | 0.94 |
-
-
-| Algorithm | Geometric Mean |
-| ------ | ----------- |
-| Balanced Random Forest   | 0.78 |
-| Easy Ensemble Classifier | 0.93 |
 
 
 Using the feature importances function in the Balanced Random Forest classifier, the top 3 features in determining the credit risk of a borrower as shown below. We can see that the top 3 features all relate to whether a portion of the loan has already been paid which makes sense because it shows a glimpse of past behavior of the borrower.
